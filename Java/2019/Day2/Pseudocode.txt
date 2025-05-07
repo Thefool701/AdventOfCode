@@ -1,0 +1,44 @@
+Read from file and store into String 
+
+Turn string into a char array 
+
+Append char array values into an integer array 
+    
+Access array and do the ff: 
+    Acess opcode from arr[i]
+    Check first opcode if it is either 1, 2, or 99 
+ 
+    if opcode == 1
+        pos1 = arr[i + 1]
+        post2 = arr[i + 2]
+        dest = arr[i + 3]
+
+        inpt1 = arr[pos1]
+        inpt2 = arr[pos2]
+
+        result = inpt1 + inpt2 
+
+        arr[dest] = result
+
+    if opcode == 2
+        pos1 = arr[i + 1]
+        post2 = arr[i + 2]
+        dest = arr[i + 3]
+
+        inpt1 = arr[pos1]
+        inpt2 = arr[pos2]
+
+        result = inpt1 * inpt2 
+
+        arr[dest] = result
+
+Print integer array
+    
+
+
+
+
+
+
+
+

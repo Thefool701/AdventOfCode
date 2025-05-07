@@ -1,0 +1,52 @@
+/* --- Day 4: High-Entropy Passphrases --- */
+
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"strings"
+)
+
+func main() {
+	infile, err := os.Open("input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	scanner := bufio.NewScanner(infile)
+	var validPassphraseCounter int
+	for scanner.Scan() {
+		var frans []string
+		frans = strings.Split(scanner.Text(), " ")
+		validPassphraseCounter += passphraseAuthenticator(frans)
+	}
+
+	fmt.Println("Part 1:", validPassphraseCounter)
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func passphraseAuthenticator(frans []string) int {
+	passMap := make(map[string]bool)
+
+	for i := range frans {
+		_, ok := passMap[frans[i]]
+		if !ok {
+			passMap[frans[i]] = true
+		} else {
+			return 0
+		}
+	}
+
+	return 1
+}
+
+func anagramPassphraseAuthenticator(frans []string) string {
+	fmt.Println(frans)
+	return "valid"
+}

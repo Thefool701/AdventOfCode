@@ -1,0 +1,15 @@
+Pass input slice 
+
+Iterate through slice 
+    Breake curr token into its individual chars 
+    sort them 
+    Concat them into temp string 
+    Append stringCopy into tempSlice 
+    Then store stringCopy into tempSlice
+
+Iterate through tempSlice 
+    compare curr token into hashmap 
+    if true then 
+        return invalid 
+
+return valid
