@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	infile, err := os.Open("input.txt")
+	infile, err := os.Open("testcase.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -20,8 +20,8 @@ func main() {
 	scanner := bufio.NewScanner(infile)
 	for scanner.Scan() {
 		temp := scanner.Text()
-		angela, _ := strconv.Atoi(temp)
-		arr = append(arr, angela)
+		fileInput, _ := strconv.Atoi(temp)
+		arr = append(arr, fileInput)
 		length++
 	}
 
@@ -34,20 +34,20 @@ func main() {
 }
 
 func findTheExit(arr []int, length int) int {
-	var currPos int // Position in the Array
-	var status bool
-	var offset int // Instructions of Jumps
+	var offset int
+	var position int
 	var steps int
-	for !status {
-		// Get oFfset and Jump
-		offset = arr[currPos]
-		// Increment Position
-		arr[currPos]++
-		currPos += offset
-		if currPos > length {
-			return steps
-		}
+	for i := range arr {
+		offset = arr[position]
+		arr[position]++
+		position += offset
 		steps++
+		if position > length {
+			fmt.Println(i)
+			fmt.Println("escaped the maze...")
+			break
+		}
 	}
+	fmt.Println(arr)
 	return steps
 }
